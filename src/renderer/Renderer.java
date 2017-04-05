@@ -19,8 +19,9 @@ public class Renderer {
             if (field.getAnnotation(renderer.RenderMe.class) != null) {
                 field.setAccessible(true);
 
-                if (!field.getAnnotation(renderer.RenderMe.class).with().equals("default"))
+                if (!field.getAnnotation(renderer.RenderMe.class).with().equals("default")) {
                     result += ArrayRenderer.render(field);
+                }
                 else {
                     try {
                         result += field.getName() + " (Type " + field.getType() + "): " + field.get(object).toString() + "\n";
