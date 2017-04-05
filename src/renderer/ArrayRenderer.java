@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 
 public class ArrayRenderer {
-    public static String render(Object object) {
+    public static String render(Object object, Object myClass) {
         if(object instanceof Field)
             System.out.println("Yeeah");
 
@@ -23,7 +23,7 @@ public class ArrayRenderer {
 */
 
         try {
-            result +=  arrayField.get(object);
+            result +=  arrayField.get(myClass);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }

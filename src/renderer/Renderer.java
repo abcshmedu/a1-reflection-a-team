@@ -20,7 +20,7 @@ public class Renderer {
                 field.setAccessible(true);
 
                 if (!field.getAnnotation(renderer.RenderMe.class).with().equals("default")) {
-                    result += ArrayRenderer.render(field);
+                    result += ArrayRenderer.render(field, object);
                 }
                 else {
                     try {

@@ -12,6 +12,8 @@ public class SomeClass {
     @RenderMe
     private Date date = new Date(123456789);
 
+
+
     public SomeClass(int foo) {
         this.foo = foo;
     }
