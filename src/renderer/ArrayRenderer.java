@@ -14,7 +14,7 @@ public class ArrayRenderer {
         for (Object o : objectArray) {
             result += o + ", ";
         }
-        return result + "]";
+        return result + "]\n";
     }
 
     private static Object[] convertToArray(Object object) {

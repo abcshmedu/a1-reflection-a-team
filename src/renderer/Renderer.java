@@ -12,7 +12,7 @@ public class Renderer {
     }
 
     public String render() {
-        String result = "";
+        String result = "Instance of SomeClass:\n";
 
         Field[] fields = classObject.getDeclaredFields();
         for (Field field : fields) {
@@ -21,10 +21,6 @@ public class Renderer {
 
                 if (!field.getAnnotation(renderer.RenderMe.class).with().equals("default"))
                     try {
-                        System.out.println(field.getType());
-
-                        System.out.println(field.getType().getCanonicalName());
-                        System.out.println(field.getType().getName());
                         result += field.getName() + " (Type " + field.getType().getCanonicalName() + ") ";
                         result += ArrayRenderer.render(field.get(object));
                     } catch (IllegalAccessException e) {
@@ -32,7 +28,7 @@ public class Renderer {
                     }
                 else {
                     try {
-                        result += field.getName() + " (Type " + field.getType() + "): " + field.get(object).toString() + "\n";
+                        result += field.getName() + " (Type " + field.getType().getCanonicalName() + "): " + field.get(object).toString() + "\n";
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     }
