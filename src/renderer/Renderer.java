@@ -20,7 +20,16 @@ public class Renderer {
                 field.setAccessible(true);
 
                 if (!field.getAnnotation(renderer.RenderMe.class).with().equals("default"))
-                    result += ArrayRenderer.render(field);
+                    try {
+                        System.out.println(field.getType());
+
+                        System.out.println(field.getType().getCanonicalName());
+                        System.out.println(field.getType().getName());
+                        result += field.getName() + " (Type " + field.getType().getCanonicalName() + ") ";
+                        result += ArrayRenderer.render(field.get(object));
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
                 else {
                     try {
                         result += field.getName() + " (Type " + field.getType() + "): " + field.get(object).toString() + "\n";
