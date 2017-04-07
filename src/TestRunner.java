@@ -16,7 +16,12 @@ final class TestRunner {
      */
     private TestRunner() {
     }
-    public static void main(String[] args) {
+
+    /**
+     * Starts the parameterized tests.
+     *
+     */
+    public static void main() {
         Result result = JUnitCore.runClasses(RendererTestParameterized.class);
 
         for (Failure failure : result.getFailures()) {
