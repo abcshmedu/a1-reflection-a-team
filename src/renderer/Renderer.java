@@ -1,6 +1,8 @@
 package renderer;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
 public class Renderer {
     private final Object object;
@@ -35,6 +37,25 @@ public class Renderer {
                 }
             }
         }
+
+
+        Method[] methods = classObject.getDeclaredMethods();
+
+        for (Method method : methods){
+            if(method.getAnnotation(renderer.RenderMe.class) != null){
+                if(method.getParameterTypes().length == 0){
+                    try {
+                        result += method.invoke(object,null);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
+
         return result;
     }
 }

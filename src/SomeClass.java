@@ -15,4 +15,9 @@ public class SomeClass {
     public SomeClass(int foo) {
         this.foo = foo;
     }
+
+    @RenderMe
+    public String returnHelloWorld(){
+        return "Hello World!";
+    }
 }
