@@ -19,7 +19,7 @@ final class ArrayRenderer {
      * @param object array to be rendered
      * @return result string representation of array
      */
-    public static String render(Object object) {
+    static String render(Object object) {
         Object[] objectArray = convertToArray(object);
 
         String result = "[";
@@ -30,10 +30,15 @@ final class ArrayRenderer {
     }
 
     /**
+     * Converts the object into an array.
+     *
      * @param object to be converted to array.
      * @return array of objects.
      */
     private static Object[] convertToArray(Object object) {
+        if (object == null) {
+            return new Object[0];
+        }
 
         Object item = Array.get(object, 0);
         int arrayLength = Array.getLength(object);

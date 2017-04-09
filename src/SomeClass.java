@@ -13,7 +13,7 @@ public class SomeClass {
     private int foo;
 
     @RenderMe(with = "renderer.ArrayRenderer")
-    private int[] array = {1, 2, thirdConstant, };
+    private int[] array = null; //{1, 2, thirdConstant, };
 
     @RenderMe
     private Date date = new Date(dateValue);
@@ -22,7 +22,7 @@ public class SomeClass {
      * The constructor.
      * @param foo int value that represents some random number.
      */
-    public SomeClass(int foo) {
+    SomeClass(int foo) {
         this.foo = foo;
     }
 
