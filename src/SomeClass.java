@@ -13,7 +13,7 @@ public class SomeClass {
     private int foo;
 
     @RenderMe(with = "renderer.ArrayRenderer")
-    private int[] array = null; //{1, 2, thirdConstant, };
+    private int[] array = {1, 2, thirdConstant, };
 
     @RenderMe
     private Date date = new Date(dateValue);
